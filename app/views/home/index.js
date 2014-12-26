@@ -3,18 +3,36 @@ import Ember from 'ember';
 export default Ember.View.extend({
   classNames: ['full'],
 
+  ddLength: 30,
+
+
+
   getContentWidth: function () {
     return this.$('> div.col-md-10').width() - 120;
   },
 
-  didInsertElement: function () {
-    var width = this.getContentWidth();
-    //this.$('.current').width(width + '%');
+  onResize: function () {
+    var width = 100 * this.getContentWidth() / this.$('> div.col-md-10').width();
     var array = this.$('dd');
     for(var i = 0; i < array.length; i++) {
       var dd = this.$(array[i]);
       dd.css({
-        width: width,
+        width: width + '%'
+      });
+    }
+  },
+
+  didInsertElement: function () {
+
+    Ember.$(window).resize(function (evt) {
+      this.onResize();
+    }.bind(this));
+
+    this.onResize();
+    var array = this.$('dd');
+    for(var i = 0; i < array.length; i++) {
+      var dd = this.$(array[i]);
+      dd.css({
         left: 30 * i
       });
     }
@@ -42,8 +60,8 @@ export default Ember.View.extend({
         }
       }
       //
-      // Ember.$('dd').removeClass('current').width(0);
-      // Ember.$(this).next('dd').addClass('current').width(width + '%');
+      this.$('dd').removeClass('current');
+      node.addClass('current');
     }.bind(this));
   }
 
