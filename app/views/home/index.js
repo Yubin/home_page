@@ -42,26 +42,34 @@ export default Ember.View.extend({
       var index = node.index();
       var left = node.offset().left;
       var array = this.$('dd');
-      var dd;
+      var dd, i;
 
       if (left > 120) { // go left
-        for(var i = index; i > 0; i--) {
+        for(i = index; i > 0; i--) {
           dd = this.$(array[i]);
-          if (dd.offset().left > 120) {
-            dd.animate({'left': 30 * i});
-          }
+          if (dd.offset().left < 120) { break;}
+          dd.animate({'left': 30 * i}, {
+            complete: function() {
+              node.find('a').css({'display': 'none'});
+            }
+          });
         }
+        Ember.$(array[i]).find('h4 a').css('display', 'block');
+
+
       } else { // go right
-        for(var i = index + 1; i < array.length; i++) {
+        for(i = index + 1; i < array.length; i++) {
           dd = this.$(array[i]);
           if (dd.offset().left < 121) {
-            dd.animate({'left': this.getContentWidth() + 30 * (i - 1)});
+            dd.animate({'left': this.getContentWidth() + 30 * (i - 1)}, {
+              complete: function () {
+                Ember.$(this).find('h4 a').css('display', 'block');
+                node.find('a').css({'display': 'none'});
+              }
+            });
           }
         }
       }
-      //
-      this.$('dd').removeClass('current');
-      node.addClass('current');
     }.bind(this));
   }
 
