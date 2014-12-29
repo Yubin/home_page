@@ -29,9 +29,15 @@ export default Ember.View.extend({
 
   onQueryChange: function () {
     var array = this.get('content').filter(function (item) {
-      return get(item, 'name').indexOf(this.get('query')) > -1;
+      return get(item, 'name').toLowerCase().indexOf(this.get('query').toLowerCase()) > -1;
     }.bind(this));
     this.set('searchContent', array);
   }.observes('query'),
+
+  keyDown: function (evt) {
+    if (evt.keyCode === 27) { // escape
+      this.set('query', '');
+    }
+  }
 
 });
