@@ -60,7 +60,7 @@ export default Ember.View.extend({
         for(i = index + 1; i < array.length; i++) {
           dd = this.$(array[i]);
           if (dd.offset().left < totalDdWidth + 1) {
-            dd.animate({'left': this.getContentWidth() + ddWidth * (i - 1)}, {
+            dd.animate({'left': this.$('> div.col-md-10').width() + ddWidth * (i - 5) }, {
               complete: function () {
                 Ember.$(this).find('h4 a').css('display', 'block');
                 node.find('h4 a').css({'display': 'none'});
