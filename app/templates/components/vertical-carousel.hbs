@@ -1,7 +1,15 @@
 <!-- Carousel items -->
 
-{{view 'home/images'}}
+{{view 'home/images' content=images padding=circleSlide}}
 
 <!-- Carousel nav -->
 <a class="control left" {{action 'prev'}}>‹</a>
 <a class="control right" {{action 'next'}}>›</a>
+
+{{!-- <div class="pagination">
+  {{#each images}}
+    <div class="page">
+      <a class="" {{action 'page'}}></a>
+    </div>
+  {{/each}}
+</div> --}}
