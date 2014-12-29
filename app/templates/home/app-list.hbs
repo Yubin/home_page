@@ -1,0 +1,20 @@
+<div class="search-bar input-group input-group-sm">
+  <input type="text" class="form-control" placeholder="Search">
+  <span class="btn btn-default">
+    <span class="glyphicon glyphicon-search"></span>
+  </span>
+</div>
+
+<div class="app-list">
+  {{#each view.content}}
+  <div class="row">
+    <div class="col-md-6 img">
+      <img {{bind-attr src=logoUrl}} alt="Logo">
+    </div>
+    <div class="col-md-6 content">
+      <h4>{{name}}</h4>
+      <h5>{{number}} APPs</h5>
+    </div>
+  </div>
+  {{/each}}
+</div>
