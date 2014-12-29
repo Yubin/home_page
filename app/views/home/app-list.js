@@ -7,7 +7,7 @@ export default Ember.View.extend({
   classNames: ['app-list'],
 
   content: [
-    {logoUrl: 'assets/img/side_icons_1.png', name: 'Humber Resource', number: 12},
+    {logoUrl: 'assets/img/side_icons_1.png', name: 'Human Resource', number: 12},
     {logoUrl: 'assets/img/side_icons_2.png', name: 'Customer Relationship', number: 12},
     {logoUrl: 'assets/img/side_icons_3.png', name: 'Project Management', number: 12},
     {logoUrl: 'assets/img/side_icons_4.png', name: 'Supply Chain', number: 12},
