@@ -1,20 +1,18 @@
 <div class="search-bar input-group input-group-sm">
-  <input type="text" class="form-control" placeholder="Search">
+  {{input value=view.query class="form-control" placeholder="Search"}}
   <span class="btn btn-default">
-    <span class="glyphicon glyphicon-search"></span>
+    <a class="glyphicon glyphicon-search"></a>
   </span>
 </div>
 
-<div class="app-list">
-  {{#each view.content}}
-  <div class="row">
-    <div class="col-md-6 img">
-      <img {{bind-attr src=logoUrl}} alt="Logo">
-    </div>
-    <div class="col-md-6 content">
-      <h4>{{name}}</h4>
-      <h5>{{number}} APPs</h5>
-    </div>
+{{#each view.searchContent}}
+<div class="row">
+  <div class="col-md-5 img">
+    <img {{bind-attr src=logoUrl}} alt="Logo">
   </div>
-  {{/each}}
+  <div class="col-md-7 content">
+    <h4>{{name}}</h4>
+    <span>{{number}} APPs</span>
+  </div>
 </div>
+{{/each}}
