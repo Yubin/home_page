@@ -3,17 +3,23 @@ import Ember from 'ember';
 export default Ember.View.extend({
   classNames: ['full'],
 
-  ddLength: 30,
-
-
+  // ddLength: 0.025,
 
   getContentWidth: function () {
-    return this.$('> div.col-md-10').width() - 120;
+    return this.$('> div.col-md-10').width() * 0.9;
   },
 
   onResize: function () {
-    var width = 100 * this.getContentWidth() / this.$('> div.col-md-10').width();
+    // var width = 100 * this.getContentWidth() / this.$('> div.col-md-10').width();
+    var width = 90;
     var array = this.$('dd');
+    var ddWidth = 0.025 * this.$('> div.col-md-10').width();
+    for(var i = 0; i < array.length; i++) {
+      var dd = this.$(array[i]);
+      dd.css({
+        left: ddWidth * i
+      });
+    }
     for(var i = 0; i < array.length; i++) {
       var dd = this.$(array[i]);
       dd.css({
@@ -29,42 +35,35 @@ export default Ember.View.extend({
     }.bind(this));
 
     this.onResize();
-    var array = this.$('dd');
-    for(var i = 0; i < array.length; i++) {
-      var dd = this.$(array[i]);
-      dd.css({
-        left: 30 * i
-      });
-    }
-
     this.$('dd > h4').click(function(evt) {
       var node = this.$(evt.currentTarget).parent('dd');
       var index = node.index();
       var left = node.offset().left;
       var array = this.$('dd');
       var dd, i;
+      var ddWidth = 0.025 * this.$('> div.col-md-10').width();
+      var totalDdWidth = ddWidth * 4;
 
-      if (left > 120) { // go left
+      if (left > totalDdWidth) { // go left
         for(i = index; i > 0; i--) {
           dd = this.$(array[i]);
-          if (dd.offset().left < 120) { break;}
-          dd.animate({'left': 30 * i}, {
+          if (dd.offset().left < totalDdWidth) { break;}
+          dd.animate({'left': ddWidth * i}, {
             complete: function() {
-              node.find('a').css({'display': 'none'});
+              node.find('h4 a').css({'display': 'none'});
             }
           });
         }
         Ember.$(array[i]).find('h4 a').css('display', 'block');
 
-
       } else { // go right
         for(i = index + 1; i < array.length; i++) {
           dd = this.$(array[i]);
-          if (dd.offset().left < 121) {
-            dd.animate({'left': this.getContentWidth() + 30 * (i - 1)}, {
+          if (dd.offset().left < totalDdWidth + 1) {
+            dd.animate({'left': this.$('> div.col-md-10').width() + ddWidth * (i - 5) }, {
               complete: function () {
                 Ember.$(this).find('h4 a').css('display', 'block');
-                node.find('a').css({'display': 'none'});
+                node.find('h4 a').css({'display': 'none'});
               }
             });
           }
