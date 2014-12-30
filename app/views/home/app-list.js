@@ -7,15 +7,15 @@ export default Ember.View.extend({
   classNames: ['app-list'],
 
   content: [
-    {logoUrl: 'assets/img/side_icons_1.png', name: 'Human Resource', number: 12},
-    {logoUrl: 'assets/img/side_icons_2.png', name: 'Customer Relationship', number: 12},
-    {logoUrl: 'assets/img/side_icons_3.png', name: 'Project Management', number: 12},
-    {logoUrl: 'assets/img/side_icons_4.png', name: 'Supply Chain', number: 12},
-    {logoUrl: 'assets/img/side_icons_5.png', name: 'Sales Force', number: 12},
-    {logoUrl: 'assets/img/side_icons_6.png', name: 'Accounting & Tax', number: 12},
-    {logoUrl: 'assets/img/side_icons_7.png', name: 'Analytics', number: 12},
-    {logoUrl: 'assets/img/side_icons_8.png', name: 'e-Commerce', number: 12},
-    {logoUrl: 'assets/img/side_icons_9.png', name: 'Customize', number: 12}
+    {logoUrl: 'assets/img/side_icons_1.png', name: 'Human Resource', number: 52},
+    {logoUrl: 'assets/img/side_icons_2.png', name: 'Customer Relationship', number: 9},
+    {logoUrl: 'assets/img/side_icons_3.png', name: 'Project Management', number: 42},
+    {logoUrl: 'assets/img/side_icons_4.png', name: 'Supply Chain', number: 16},
+    {logoUrl: 'assets/img/side_icons_5.png', name: 'Sales Force', number: 19},
+    {logoUrl: 'assets/img/side_icons_6.png', name: 'Accounting & Tax', number: 22},
+    {logoUrl: 'assets/img/side_icons_7.png', name: 'Analytics & Reports', number: 10},
+    {logoUrl: 'assets/img/side_icons_8.png', name: 'e-Commerce', number: 31},
+    {logoUrl: 'assets/img/side_icons_9.png', name: 'Customized APP', number: 13}
   ],
 
   query: '',
