@@ -1,6 +1,7 @@
 @import "bower_components/bootstrap/less/variables.less";
 @import "accordion.less";
 @import "carousel.less";
+@import "left-nav.less";
 @import "home-app-list.less";
 
 html, body {
@@ -36,41 +37,15 @@ html, body {
   padding: 23px;
 }
 
-.full.col-md-10 {
-  width: 86%;
-}
-
-.full.col-md-2 {
-  width: 14%;
-  z-index: 1000;
-  input {
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-  }
-  .btn {
-    width: 35px;
-    height: 30px;
-    border-radius: 50%;
-    position: absolute;
-    right: 8px;
-    z-index: 10;
-    background-color: @gray-lighter;
-    .glyphicon {
-      left: -2px;
-      right: 0;
-    }
-  }
-}
-
 .experience-button {
   position: absolute;
   z-index: 100;
-  right: 5%;
+  left: 55%;
   top: 0;
   background-color: #d86927;
   box-shadow: 3px 3px 15px #888888;
-  width: 230px;
-  height: 83px;
+  width: 20%;
+  height: 6vw;
   padding: 10px 0 0 0px;
   -webkit-border-bottom-right-radius: 30px;
   -webkit-border-bottom-left-radius: 30px;
@@ -91,11 +66,20 @@ html, body {
     margin-bottom: 5px;
     color: white;
     font-style: italic;
+    font-size: 2.5vw;
   }
   h4 {
     color: white;
     font-style: italic;
     margin-top: 0;
     margin-bottom: 5px;
+    font-size: 1.1vw;
   }
+}
+
+.app-store-content {
+  background-color: @gray-lighter;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }

@@ -1,10 +1,44 @@
 
-.carousel.vertical {
+.dd-content {
   position: absolute;
-  width: 97.2%;
+  width: 97.8%;
   height: 100%;
   top: 0;
-  left: 2.8%;
+  left: 2.2%;
+
+  .app-list {
+    position: absolute;
+    background-color: #000;
+    width: 15%;
+    height: 100%;
+    z-index: 1000;
+    right: 0;
+    input {
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
+    .btn {
+      width: 35px;
+      height: 30px;
+      border-radius: 50%;
+      position: absolute;
+      right: 8px;
+      z-index: 10;
+      background-color: @gray-lighter;
+      .glyphicon {
+        left: -2px;
+        right: 0;
+      }
+    }
+  }
+
+}
+
+.carousel.vertical {
+  position: absolute;
+  width: 85%;
+  height: 100%;
+  top: 0;
   // -webkit-transform: translate3d(0px, -410px, 0px);
   // -webkit-transform: translateY(-410px);
   ul {
