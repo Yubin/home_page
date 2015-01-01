@@ -10,7 +10,6 @@ html, body {
   height: 100%;
   .body {
     height: 100%;
-    // min-width: 1440px;
     overflow: hidden;
   }
 }
@@ -66,20 +65,266 @@ html, body {
     margin-bottom: 5px;
     color: white;
     font-style: italic;
-    font-size: 2.5vw;
+    font-size: 3vw;
   }
   h4 {
     color: white;
     font-style: italic;
     margin-top: 0;
     margin-bottom: 5px;
-    font-size: 1.1vw;
+    font-size: 1.2vw;
+    font-weight: bold;
   }
 }
 
 .app-store-content {
-  background-color: @gray-lighter;
+  background-color: #f2f2f2;
   height: 100%;
   width: 100%;
   position: absolute;
+  .left-nav-wrap {
+    background: @color-blue;
+    .logo {
+      background-image: url("img/logo_gausian_app.png");
+    }
+    ul {
+      li {
+        &:hover {
+          background-color: @color-dark-blue;
+        }
+      }
+      li.active {
+        background-color: @color-dark-blue;
+        &:after {
+          border-color: transparent #f2f2f2 transparent transparent;
+        }
+      }
+    }
+  }
+  .item {
+    display: none;
+    width: 84%;
+    position: absolute;
+    right:0;
+    height: 100%;
+    padding: 3%;
+    padding: 3.5%;
+    ul {
+      display: block;
+      padding: 0;
+      margin: -2px -0.55556rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.11111rem;
+      list-style-position: outside;
+      font-family: inherit;
+      li {
+        cursor: pointer;
+        width: 20%;
+        list-style: none;
+        display: inline-block;;
+        height: auto;
+        margin: 1vw;
+        margin-left: 2.2vw;
+
+        &:hover {
+          box-shadow: 1vw 1vw 2vw #888888;
+          border-radius: 1vw;
+        }
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+        .th {
+          line-height: 0;
+          display: inline-block;
+          max-width: 100%;
+          transition: all 200ms ease-out;
+        }
+      }
+    }
+  }
+  .item.first {
+    h1 {
+      margin-top: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+      font-style: italic;
+      color: @color-blue;
+      font-size: 3vw;
+    }
+    h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+      font-style: italic;
+      color: @color-blue;
+      padding-left: 10%;
+      font-size: 2vw;
+    }
+  }
+}
+
+.solutions-content {
+  padding-right: 1.8%;
+  text-align: justify;
+  -ms-text-justify: distribute-all-lines;
+  text-justify: distribute-all-lines;
+
+  &:after {
+    content: '';
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+  }
+  h2 {
+    margin:0;
+    text-align: center;
+    font-size: 2.4vw;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    font-style: italic;
+    color: white;
+    font-weight: bold;
+  }
+  .img {
+    span {
+      color: @color-dark-blue;
+      text-align: center;
+      margin-left: 18%;
+      font-size: 2vw;
+      opacity: 0.7;
+    }
+    padding-top: 45%;
+    background-size: 100% 100%;
+    width: 23.3%;
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    &:after {
+      padding-top: 8%;
+      display: block;
+      content: '';
+    }
+    &:hover {
+      cursor: pointer;
+      border: 0.5px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 20px rgba(255, 255, 255, 0.8);
+      span {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+.dd-content {
+  position: absolute;
+  width: 97.8%;
+  height: 100%;
+  top: 0;
+  left: 2.2%;
+
+  .app-list {
+    position: absolute;
+    background-color: #000;
+    width: 15%;
+    height: 100%;
+    z-index: 1000;
+    right: 0;
+    input {
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
+    .btn {
+      width: 35px;
+      height: 30px;
+      border-radius: 50%;
+      position: absolute;
+      right: 8px;
+      z-index: 10;
+      background-color: @gray-lighter;
+      .glyphicon {
+        left: -2px;
+        right: 0;
+      }
+    }
+  }
+}
+
+
+
+.developers-content {
+  background-color: @color-dark;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  .left-nav-wrap {
+    background: @color-darker-blue;
+    .logo {
+      background-image: url("img/logo_gausian_developer.png");
+    }
+    ul {
+      li {
+        &:hover {
+          background-color: @color-dark-blue;
+        }
+      }
+      li.active {
+        background-color: @color-dark-blue;
+        &:after {
+          border-color: transparent @color-dark transparent transparent;
+        }
+      }
+    }
+  }
+
+  .item {
+    color: white;
+    display: none;
+    width: 84%;
+    position: absolute;
+    right:0;
+    height: 100%;
+    padding-top: 3%;
+    padding-left: 7%;
+    padding-right: 7%;
+    .row {
+      margin-left: -3%;
+      margin-right: 0;
+    }
+  }
+  .item.welcome {
+    h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: italic;
+      font-size: 2vw;
+      margin-top:4%;
+      margin-bottom: 2%;
+    }
+    .img {
+      float: left;
+      width: 15%;
+    }
+    .content {
+      margin-left: 5%;
+      -webkit-align-content: space-between;
+      align-content: space-between;
+      display: flex;
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+      h5 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic;
+        font-size: 1vw;
+        margin-bottom: 2%;
+      }
+    }
+  }
 }

@@ -1,16 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.View.extend({
-  classNames: ['app-store-content'],
-  templateName: 'store/content',
+  classNames: ['dd-content', 'developers-content'],
+  templateName: 'developers/content',
 
   onIndexChange: function () {
     var index = this.get('controller.activeContent') || 0;
 
     if (this._state === 'inDOM') {
       this.$('.item').hide();
-      if (index > 1) {
-        index = 1;
+      if (index > 2) {
+        index = 2;
       }
       this.$(this.$('.item')[index]).show();
     }

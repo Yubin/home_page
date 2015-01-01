@@ -1,23 +1,30 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  content: [{name: 'Top Apps'},
-{name: 'Collaboration'},
-{name: 'Human Resources'},
-{name: 'Customer Relationship'},
-{name: 'Project Management'},
-{name: 'Sales Management'},
-{name: 'Supply Chain'},
-{name: 'e-Commerce'},
-{name: 'Accounting'},
-{name: 'Inventory'},
-{name: 'Analytics'}
-],
+var get = Ember.get;
 
-click: function (evt) {
-  console.log(evt.target);
-  this.$('li').removeClass('active');
-  this.$(evt.target).addClass('active');
-}
+export default Ember.Component.extend({
+
+  classNames: ['left-nav-wrap'],
+
+  activeIndex: 0,
+
+  action: 'indexChange',
+
+  didInsertElement: function () {
+    var array = this.$('li');
+    this.$(array[this.get('activeIndex')]).addClass('active');
+    this.sendAction('action', this.get('activeIndex'));
+  },
+
+  click: function (evt) {
+    var target = $( event.target );
+    var active = this.$('li.active');
+    if (target.is('li') && target[0] !== active[0]) {
+      this.set('activeIndex', target.index());
+      active.removeClass('active');
+      target.addClass('active');
+      this.sendAction('action', target.index());
+    }
+  }
 
 });

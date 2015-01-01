@@ -14,11 +14,14 @@ export default Ember.View.extend({
     var width = 92;
     var array = this.$('dd');
     var ddWidth = 0.02 * this.$('> div.wrapper').width();
+    var totalDdWidth = 0.5 * this.$('> div.wrapper').width();
     for(var i = 0; i < array.length; i++) {
       var dd = this.$(array[i]);
-      dd.css({
-        left: ddWidth * i
-      });
+      if (dd.offset().left < totalDdWidth) {
+        dd.css('left', ddWidth * i);
+      } else {
+        dd.css('left', this.$('> div.wrapper').width() + ddWidth * (i - 5));
+      }
     }
     for(var i = 0; i < array.length; i++) {
       var dd = this.$(array[i]);
@@ -34,9 +37,17 @@ export default Ember.View.extend({
       this.onResize();
     }.bind(this));
 
+    Ember.$(window).keydown(function (evt) {
+      if (evt.keyCode === 9) { // TBD: nicer way to disable Tab
+        evt.stopPropagation();
+        evt.preventDefault();
+      }
+    });
+
     this.onResize();
     this.$('dd > h4').click(function(evt) {
       var node = this.$(evt.currentTarget).parent('dd');
+
       var index = node.index();
       var left = node.offset().left;
       var array = this.$('dd');
