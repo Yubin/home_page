@@ -1,17 +1,32 @@
-  <div class="full col-md-10">
+  <div class="full wrapper">
     <dl>
-      <dd class='others-color'><h4><a>Others</a></h4></dt>
-      <dd class='developers-color'><h4><a>Deverlopers</a></h4></dt>
-      <dd class='desktop-color'><h4><a>Desktop</a></h4></dt>
-      <dd class='apps-color't><h4><a>APPs</a></h4></dt>
-      <dd class='home-color current'>
+      <dd class='others-color' >
+        <h4><a>Developers</a></h4>
+        {{render 'developers/content'}}
+      </dd>
+      <dd class='developers-color' >
+        <h4><a>APP Store</a></h4>
+        <div class="dd-content">
+          {{render 'store/content'}}
+        </div>
+      </dd>
+      <dd class='desktop-color' >
+        <h4><a>Solutions</a></h4>
+        {{render 'solutions/content'}}
+      </dd>
+      <dd class='apps-color' >
+        <h4><a>Desktop</a></h4>
+        <div class="dd-content">
+          <iframe src="http://yubin.github.io/web_desktop/dist/index.html" style="width:100%; height:100%" frameborder="0"></iframe>
+        </div>
+      </dd>
+      <dd class='home-color current' >
         <h4><a>Home</a></h4>
         {{view 'home/content'}}
       </dd>
     </dl>
   </div>
 
-  <div class="full col-md-2 black">
+  {{!-- <div class="full col-md-2 black">
     {{view 'home/app-list'}}
-
-  </div>
+  </div> --}}

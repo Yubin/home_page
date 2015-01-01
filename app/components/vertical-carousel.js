@@ -11,7 +11,7 @@ export default Ember.Component.extend({
 
   interval: 5000,
 
-  autoSlide: true,
+  autoSlide: false,
 
   reverse: false, // if true, from max to min
 
@@ -28,7 +28,7 @@ export default Ember.Component.extend({
   ],
 
   onResize: function () {
-    var winHeight = Ember.$(document).height();
+    var winHeight = window.innerHeight;
     this.$('.control').css('top', winHeight/2);
     this.$('li').height(winHeight);
     this.onIndexChange(0);
@@ -90,8 +90,7 @@ export default Ember.Component.extend({
     if (isNaN(currentIndx)) {
       currentIndx = this.get('currentIndx');
     }
-
-    var height = Ember.$(document).height() * currentIndx * -1;
+    var height = window.innerHeight * currentIndx * -1;
     var translateY = "translateY(" + height +"px)";
 
     this.$('ul').css({

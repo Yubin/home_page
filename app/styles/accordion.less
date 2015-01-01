@@ -1,65 +1,36 @@
-@color-home: #33ccff;
-@color-apps: #3399ff;
-@color-desktop: #0066ff;
-@color-developers: #000099;
-@color-others: #000000;
+@color-light-blue: #33ccff;
+@color-blue: #3399ff;
+@color-dark-blue: #0066ff;
+@color-darker-blue: #000099;
+@color-dark: #000000;
 
 .home-color {
-  background-color: @color-home;
+  background-color: @color-light-blue;
 }
 
 .apps-color {
-  background-color: @color-apps;
+  background-color: @color-blue;
 }
 
 .desktop-color {
-  background-color: @color-desktop;
+  background-color: @color-dark-blue;
 }
 
 .developers-color {
-  background-color: @color-developers;
+  background-color: @color-darker-blue;
 }
 
 .others-color {
-  background-color: @color-others;
+  background-color: @color-dark;
 }
 
 dl {
   padding:0;
   margin: 0;
   height: 100%;
-
-}
-
-dt {
-  width: 28px;
-  float:left;
-  height:100%;
-  padding:0;
-  margin: 0;
-  h4 {
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 1px;
-    margin-top: 67px;
-    -webkit-transform-origin: 25px 0;
-    -moz-transform-origin: 25px 0;
-    -o-transform-origin: 25px 0;
-    -ms-transform-origin: 25px 0;
-    transform-origin: 25px 0;
-    -webkit-transform:rotate(90deg);
-    -moz-transform:rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-    a {
-      color: white;
-      cursor:pointer;
-      &:hover {
-        color: white;
-        text-decoration: none;
-      }
-    }
-  }
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
 }
 
 dd {
@@ -72,14 +43,15 @@ dd {
   padding:0;
   margin: 0;
   > h4 {
+    font-size: 1.2vw;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 1px;
     margin-top: 67px;
-    -webkit-transform-origin: 25px 0;
-    -moz-transform-origin: 25px 0;
-    -o-transform-origin: 25px 0;
-    -ms-transform-origin: 25px 0;
-    transform-origin: 25px 0;
+    -webkit-transform-origin: 1.7vw 0;
+    -moz-transform-origin: 1.7vw 0;
+    -o-transform-origin: 1.7vw 0;
+    -ms-transform-origin: 1.7vw 0;
+    transform-origin: 1.7vw 0;
     -webkit-transform:rotate(90deg);
     -moz-transform:rotate(90deg);
     -o-transform: rotate(90deg);
