@@ -92,7 +92,7 @@ export default Ember.Component.extend({
     }
     var height = window.innerHeight * currentIndx * -1;
     var translateY = "translateY(" + height +"px)";
-
+console.log(this.$('ul').css('transform'));
     this.$('ul').css({
       "transition": transition + 's',
       "-webkit-transition": transition + 's',
@@ -105,12 +105,12 @@ export default Ember.Component.extend({
 
   actions: {
     prev: function () {
+      clearInterval(this.get('timer'));
       this.addIndex(-1);
-      this.resetTimer();
     },
     next: function () {
+      clearInterval(this.get('timer'));
       this.addIndex(1);
-      this.resetTimer();
     },
 
     page: function (item) {
