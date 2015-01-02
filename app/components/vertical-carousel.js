@@ -11,7 +11,7 @@ export default Ember.Component.extend({
 
   interval: 5000,
 
-  autoSlide: false,
+  autoSlide: true,
 
   reverse: false, // if true, from max to min
 

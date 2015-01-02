@@ -12,7 +12,7 @@ export default Ember.View.extend({
       if (index > 1) {
         index = 1;
       }
-      this.$(this.$('.item')[index]).show();
+      this.$(this.$('.item')[index]).fadeIn( "slow");
     }
 
   }.observes('controller.activeContent'),

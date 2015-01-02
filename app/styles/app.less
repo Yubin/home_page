@@ -5,8 +5,8 @@
 @import "home-app-list.less";
 
 html, body {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   height: 100%;
   .body {
     height: 100%;
@@ -78,7 +78,7 @@ html, body {
 }
 
 .app-store-content {
-  background-color: #f2f2f2;
+  background-color: @color-dark;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -96,7 +96,7 @@ html, body {
       li.active {
         background-color: @color-dark-blue;
         &:after {
-          border-color: transparent #f2f2f2 transparent transparent;
+          border-color: transparent @color-dark transparent transparent;
         }
       }
     }
@@ -107,8 +107,9 @@ html, body {
     position: absolute;
     right:0;
     height: 100%;
-    padding: 3%;
-    padding: 3.5%;
+    padding-left: 1%;
+    padding-right: 1%;
+
     ul {
       display: block;
       padding: 0;
@@ -120,18 +121,21 @@ html, body {
       font-family: inherit;
       li {
         cursor: pointer;
-        width: 20%;
+        width: 22%;
         list-style: none;
         display: inline-block;;
         height: auto;
-        margin: 1vw;
-        margin-left: 2.2vw;
-
+        margin-top: 1.5vw;
+        margin-left: 2.2%;
+        // border-radius: 1vw;
         &:hover {
-          box-shadow: 1vw 1vw 2vw #888888;
-          border-radius: 1vw;
+          img {
+            cursor: pointer;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 40px rgba(255, 255, 255, 0.9);
+          }
         }
         img {
+          border-radius: 1.8vw;
           max-width: 100%;
           height: auto;
         }
@@ -145,19 +149,25 @@ html, body {
     }
   }
   .item.first {
+    .img {
+      text-align: center;
+      padding-top: 2%;
+    }
     h1 {
-      margin-top: 10px;
-      margin-bottom: 30px;
+      margin-top: 2%;
+      margin-bottom: 2%;
       text-align: center;
       font-family: Arial, Helvetica, sans-serif;
-      letter-spacing: 1px;
+      letter-spacing: 1%;
       font-style: italic;
       color: @color-blue;
       font-size: 3vw;
     }
     h2 {
       font-family: Arial, Helvetica, sans-serif;
-      letter-spacing: 1px;
+      letter-spacing: 1%;
+      margin-top: 5%;
+      margin-bottom: 2%;
       font-style: italic;
       color: @color-blue;
       padding-left: 10%;
@@ -193,13 +203,13 @@ html, body {
   }
   .img {
     span {
-      color: @color-dark-blue;
+      color: @color-dark;
       text-align: center;
-      margin-left: 18%;
-      font-size: 2vw;
+      margin-left: 25%;
+      font-size: 1.6vw;
       opacity: 0.7;
     }
-    padding-top: 45%;
+    padding-top: 47%;
     background-size: 100% 100%;
     width: 23.3%;
     vertical-align: top;
@@ -207,16 +217,16 @@ html, body {
     *display: inline;
     zoom: 1;
     &:after {
-      padding-top: 8%;
+      padding-top: 6%;
       display: block;
       content: '';
     }
     &:hover {
       cursor: pointer;
-      border: 0.5px solid rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.8);
       box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 20px rgba(255, 255, 255, 0.8);
       span {
-        opacity: 1;
+        color: @color-light-blue;
       }
     }
   }
@@ -268,7 +278,7 @@ html, body {
   .left-nav-wrap {
     background: @color-darker-blue;
     .logo {
-      background-image: url("img/logo_gausian_developer.png");
+      background-image: url("img/logo_gausian_technology.png");
     }
     ul {
       li {
@@ -295,12 +305,31 @@ html, body {
     padding-top: 3%;
     padding-left: 7%;
     padding-right: 7%;
+    h5 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: italic;
+      font-size: 1.5vw;
+      margin-bottom: 2%;
+    }
+    h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: italic;
+      font-size: 2vw;
+      margin-top:4%;
+      margin-bottom: 2%;
+      margin-left: 25%;
+    }
     .row {
       margin-left: -3%;
       margin-right: 0;
     }
+    .pic {
+      margin-top: 5%;
+      text-align: center;
+    }
   }
   .item.welcome {
+    padding-top: 6%;
     h2 {
       font-family: Arial, Helvetica, sans-serif;
       font-style: italic;
@@ -317,13 +346,15 @@ html, body {
       -webkit-align-content: space-between;
       align-content: space-between;
       display: flex;
-      -webkit-flex-flow: row wrap;
-      flex-flow: row wrap;
+      flex-direction: column;
       h5 {
         font-family: Arial, Helvetica, sans-serif;
         font-style: italic;
-        font-size: 1vw;
+        font-size: 1.2vw;
         margin-bottom: 2%;
+      }
+      a {
+        color: @color-light-blue;
       }
     }
   }
