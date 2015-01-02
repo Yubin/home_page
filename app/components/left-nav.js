@@ -17,7 +17,7 @@ export default Ember.Component.extend({
   },
 
   click: function (evt) {
-    var target = $( event.target );
+    var target = $(evt.target);
     var active = this.$('li.active');
     if (target.is('li') && target[0] !== active[0]) {
       this.set('activeIndex', target.index());
