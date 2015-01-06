@@ -125,20 +125,33 @@ html, body {
         width: 22%;
         list-style: none;
         display: inline-block;;
-        height: auto;
+        padding-bottom: 20%;
         margin-top: 1.5vw;
         margin-left: 2.2%;
+        position: relative;
         // border-radius: 1vw;
         &:hover {
-          img {
+          img.top {
             cursor: pointer;
+            -webkit-opacity: 0;
+            -moz-opacity: 0;
+            opacity: 0;
+          }
+          img {
             box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 40px rgba(255, 255, 255, 0.9);
           }
         }
         img {
+          -webkit-transition: all 0.3s ease-in-out;
+          -moz-transition: all 0.3s ease-in-out;
+          -ms-transition: all 0.3s ease-in-out;
+          -o-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
           border-radius: 1.8vw;
           max-width: 100%;
           height: auto;
+          position: absolute;
+
         }
         .th {
           line-height: 0;
