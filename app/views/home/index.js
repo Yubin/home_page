@@ -81,6 +81,22 @@ export default Ember.View.extend({
         }
       }
     }.bind(this));
+  },
+
+  actions: {
+    enterDesktop: function () {
+      var firstNode = this.$('dd')[4];
+      var DesktopNode = this.$('dd')[3];
+      var dd = this.$(firstNode);
+      var ddWidth = 0.02 * this.$('> div.wrapper').width();
+
+      dd.animate({'left': this.$('> div.wrapper').width() - ddWidth }, {
+        complete: function () {
+          Ember.$(this).find('h4 a').css('display', 'block');
+          Ember.$(DesktopNode).find('h4 a').css({'display': 'none'});
+        }
+      });
+    }
   }
 
 });
