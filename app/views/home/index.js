@@ -5,22 +5,18 @@ export default Ember.View.extend({
 
   // ddLength: 0.025,
 
-  getContentWidth: function () {
-    return this.$('> div.wrapper').width() * 0.92;
-  },
-
   onResize: function () {
-    // var width = 100 * this.getContentWidth() / this.$('> div.wrapper').width();
-    var width = 92;
     var array = this.$('dd');
     var ddWidth = 0.02 * this.$('> div.wrapper').width();
     var totalDdWidth = 0.5 * this.$('> div.wrapper').width();
+    var width = 100 - 2 * (array.length - 1);
+
     for(var i = 0; i < array.length; i++) {
       var dd = this.$(array[i]);
       if (dd.offset().left < totalDdWidth) {
         dd.css('left', ddWidth * i);
       } else {
-        dd.css('left', this.$('> div.wrapper').width() + ddWidth * (i - 5));
+        dd.css('left', this.$('> div.wrapper').width() + ddWidth * (i - array.length));
       }
     }
     for(var i = 0; i < array.length; i++) {
@@ -53,7 +49,7 @@ export default Ember.View.extend({
       var array = this.$('dd');
       var dd, i;
       var ddWidth = 0.02 * this.$('> div.wrapper').width();
-      var totalDdWidth = ddWidth * 4;
+      var totalDdWidth = 0.5 * this.$('> div.wrapper').width();
 
       if (left > totalDdWidth) { // go left
         for(i = index; i > 0; i--) {
@@ -71,7 +67,7 @@ export default Ember.View.extend({
         for(i = index + 1; i < array.length; i++) {
           dd = this.$(array[i]);
           if (dd.offset().left < totalDdWidth + 1) {
-            dd.animate({'left': this.$('> div.wrapper').width() + ddWidth * (i - 5) }, {
+            dd.animate({'left': this.$('> div.wrapper').width() + ddWidth * (i - array.length) }, {
               complete: function () {
                 Ember.$(this).find('h4 a').css('display', 'block');
                 node.find('h4 a').css({'display': 'none'});
@@ -85,17 +81,27 @@ export default Ember.View.extend({
 
   actions: {
     enterDesktop: function () {
-      var firstNode = this.$('dd')[4];
-      var DesktopNode = this.$('dd')[3];
-      var dd = this.$(firstNode);
-      var ddWidth = 0.02 * this.$('> div.wrapper').width();
 
-      dd.animate({'left': this.$('> div.wrapper').width() - ddWidth }, {
-        complete: function () {
-          Ember.$(this).find('h4 a').css('display', 'block');
-          Ember.$(DesktopNode).find('h4 a').css({'display': 'none'});
-        }
-      });
+      var href = "http://yubin.github.io/web_desktop/dist/index.html";
+      var win = this.get('newWindow');
+      if (!win || win.closed) {
+        win = window.open(href, '_blank');
+        this.set('newWindow', win);
+      }
+      console.log(win.closed);
+      win.focus();
+      return false;
+      // var firstNode = this.$('dd')[4];
+      // var DesktopNode = this.$('dd')[3];
+      // var dd = this.$(firstNode);
+      // var ddWidth = 0.02 * this.$('> div.wrapper').width();
+      //
+      // dd.animate({'left': this.$('> div.wrapper').width() - ddWidth }, {
+      //   complete: function () {
+      //     Ember.$(this).find('h4 a').css('display', 'block');
+      //     Ember.$(DesktopNode).find('h4 a').css({'display': 'none'});
+      //   }
+      // });
     }
   }
 

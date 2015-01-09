@@ -1,25 +1,21 @@
   <div class="full wrapper">
     <dl>
-      <dd class='others-color' >
+      {{!-- <dd class='others-color' >
+
+      </dd> --}}
+      <dd class='developers-color' >
         <h4><a>Technology</a></h4>
         {{render 'developers/content'}}
       </dd>
-      <dd class='developers-color' >
+      <dd class='desktop-color' >
         <h4><a>APP Store</a></h4>
         <div class="dd-content">
           {{render 'store/content'}}
         </div>
       </dd>
-      <dd class='desktop-color' >
+      <dd class='apps-color' >
         <h4><a>Solutions</a></h4>
         {{render 'solutions/content'}}
-      </dd>
-      <dd class='apps-color' >
-        <h4><a>Desktop</a></h4>
-        <div class="dd-content">
-          <img src="assets/img/desktop_effect.jpg" width="100%" height="100%">
-          {{!-- <iframe src="http://yubin.github.io/web_desktop/dist/index.html" style="width:100%; height:100%" frameborder="0"></iframe> --}}
-        </div>
       </dd>
       <dd class='home-color current' >
         <h4><a>Home</a></h4>
@@ -27,7 +23,3 @@
       </dd>
     </dl>
   </div>
-
-  {{!-- <div class="full col-md-2 black">
-    {{view 'home/app-list'}}
-  </div> --}}
