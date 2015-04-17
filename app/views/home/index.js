@@ -82,7 +82,7 @@ export default Ember.View.extend({
   actions: {
     enterDesktop: function () {
 
-      var href = "http://yubin.github.io/web_desktop/dist/index.html";
+      var href = "http://http://web.desktop.gausian.com";
       var win = this.get('newWindow');
       if (!win || win.closed) {
         win = window.open(href, '_blank');
